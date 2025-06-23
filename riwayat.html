@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Pesanan - Riz-To Snack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fef9c3;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center px-4 py-6">
+    <br>
+    <a href="mobile.html" class="absolute top-4 left-4 flex items-center gap-2 bg-white text-yellow-600 font-medium px-4 py-2 rounded-full shadow-lg hover:bg-yellow-100 transition duration-200">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    Kembali
+  </a>
+  <br>
+
+  <div class="w-full max-w-md text-center mb-6">
+    <h1 class="text-xl font-bold text-gray-800">Riwayat Pesanan</h1>
+    <p class="text-sm text-gray-600">Cek dan kelola pesanan kamu</p>
+  </div>
+
+  <div id="daftarRiwayat" class="w-full max-w-md space-y-4"></div>
+
+  <script>
+    function tampilkanRiwayat() {
+      const daftar = document.getElementById('daftarRiwayat');
+      const riwayat = JSON.parse(localStorage.getItem('riwayat')) || [];
+
+      if (riwayat.length === 0) {
+        daftar.innerHTML = "<p class='text-center text-gray-500'>Belum ada pesanan.</p>";
+        return;
+      }
+
+      daftar.innerHTML = "";
+      riwayat.forEach((item, index) => {
+        const status = item.status || "Proses";
+        const produkList = item.produk.map(p => `<li>${p.nama} x${p.jumlah}</li>`).join("");
+
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl p-4 shadow-md";
+
+        card.innerHTML = `
+          <div class="mb-2">
+            <p class="text-sm"><strong>Nama:</strong> ${item.nama}</p>
+            <p class="text-sm"><strong>Tanggal:</strong> ${item.tanggal}</p>
+            <p class="text-sm"><strong>Metode:</strong> ${item.metode}</p>
+          </div>
+          <div class="text-sm">
+            <p><strong>Produk:</strong></p>
+            <ul class="list-disc ml-5 text-gray-700">${produkList}</ul>
+            <p class="mt-1"><strong>Total:</strong> Rp${item.total}</p>
+          </div>
+          <div class="mt-3 flex flex-col gap-2">
+            <p><strong>Status:</strong> 
+              <span id="status-${index}" class="font-semibold ${status === 'Selesai' ? 'text-green-600' : 'text-yellow-600'}">
+                ${status}
+              </span>
+            </p>
+            ${status === "Proses" ? `
+              <button onclick="selesaikanPesanan(${index})"
+                class="bg-green-500 hover:bg-green-600 text-white py-1 rounded-lg text-sm">
+                Selesaikan Pesanan
+              </button>` : ""}
+
+            <button onclick="hapusPesanan(${index})"
+              class="bg-red-500 hover:bg-red-600 text-white py-1 rounded-lg text-sm">
+              Hapus
+            </button>
+          </div>
+        `;
+
+        daftar.appendChild(card);
+      });
+    }
+
+    function selesaikanPesanan(index) {
+      let riwayat = JSON.parse(localStorage.getItem('riwayat')) || [];
+      riwayat[index].status = "Selesai";
+      localStorage.setItem('riwayat', JSON.stringify(riwayat));
+      tampilkanRiwayat();
+    }
+
+    function hapusPesanan(index) {
+      if (confirm("Yakin ingin menghapus pesanan ini?")) {
+        let riwayat = JSON.parse(localStorage.getItem('riwayat')) || [];
+        riwayat.splice(index, 1); // hapus 1 item di posisi index
+        localStorage.setItem('riwayat', JSON.stringify(riwayat));
+        tampilkanRiwayat();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', tampilkanRiwayat);
+  </script>
+</body>
+</html>
