@@ -13,92 +13,75 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-4 py-6">
+<body class="min-h-screen flex flex-col items-center px-4 py-4">
 
-  <a href="#" class="absolute top-4 left-4 flex items-center gap-2 bg-white text-yellow-600 font-medium px-4 py-2 rounded-full shadow-lg hover:bg-yellow-100 transition duration-200">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    </svg>
-    Kembali
-  </a>
-
-  <div class="mt-6 mb-4">
-    <img src="946b1906-f3a9-41c1-acdf-4234b909d0de.jfif"
-         alt="Logo Riz-To"
-         class="w-28 h-28 object-cover rounded-full mx-auto animate-bounce shadow-lg border-4 border-yellow-400">
-  </div>
-
-  <div class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg mb-8">
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Formulir Pesanan</h2>
+  <div class="w-full max-w-md bg-white p-4 rounded-xl shadow-lg">
+    <h2 class="text-xl font-bold text-center text-gray-800 mb-4">Formulir Pesanan</h2>
     
-    <form id="formPesanan" class="space-y-4">
+    <form id="formPesanan" class="space-y-4 text-sm">
       <!-- Nama -->
       <div>
-        <label for="nama" class="block text-sm font-medium text-gray-700">Nama Pemesan</label>
-        <input type="text" id="nama" required class="w-full border rounded-lg px-3 py-2">
+        <label for="nama" class="block font-medium text-gray-700">Nama Pemesan</label>
+        <input type="text" id="nama" required class="w-full border rounded px-3 py-2">
       </div>
 
-   <!-- Bagian Produk (ubah ini saja jika file kamu sudah lengkap) -->
-<div>
-  <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Produk</label>
-  <div class="flex space-x-4 overflow-x-auto pb-2" id="produkContainer">
-    
-    <!-- Brambang Goreng -->
-    <label class="produk-card min-w-[120px] p-3 bg-white rounded-xl shadow-md flex flex-col items-center transition-all duration-300 border-2 border-transparent cursor-pointer">
-      <input type="radio" name="produk" value="Brambang Goreng" class="hidden peer" checked>
-      <img src="brambang.jpg" alt="Brambang Goreng"
-           class="w-20 h-20 rounded-full object-cover mb-2 transform transition duration-300 peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400">
-      <span class="text-sm font-semibold text-center text-gray-800">Brambang<br><span class="text-yellow-500">Rp10.000</span></span>
-    </label>
+      <!-- Produk -->
+      <div>
+        <label class="block font-medium text-gray-700 mb-1">Pilih Produk</label>
+        <div class="flex space-x-3 overflow-x-auto pb-2" id="produkContainer">
 
-    <!-- Peyek -->
-    <label class="produk-card min-w-[120px] p-3 bg-white rounded-xl shadow-md flex flex-col items-center transition-all duration-300 border-2 border-transparent cursor-pointer">
-      <input type="radio" name="produk" value="Peyek" class="hidden peer">
-      <img src="peyek10k.jpg" alt="Peyek"
-           class="w-20 h-20 rounded-full object-cover mb-2 transform transition duration-300 peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400">
-      <span class="text-sm font-semibold text-center text-gray-800">Peyek<br><span class="text-yellow-500">Rp15.000</span></span>
-    </label>
+          <!-- Brambang Goreng -->
+          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+            <input type="radio" name="produk" value="Brambang Goreng" class="hidden peer" checked>
+            <img src="brambang.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
+            <span class="text-center">Brambang<br><span class="text-yellow-500">Rp10.000</span></span>
+          </label>
 
-    <!-- Peyek 5lt -->
-    <label class="produk-card min-w-[120px] p-3 bg-white rounded-xl shadow-md flex flex-col items-center transition-all duration-300 border-2 border-transparent cursor-pointer">
-      <input type="radio" name="produk" value="Peyek 5lt" class="hidden peer">
-      <img src="peyek5lt.jpg" alt="Peyek 5lt"
-           class="w-20 h-20 rounded-full object-cover mb-2 transform transition duration-300 peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400">
-      <span class="text-sm font-semibold text-center text-gray-800">Peyek 5lt<br><span class="text-yellow-500">Rp50.000</span></span>
-    </label>
+          <!-- Peyek -->
+          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+            <input type="radio" name="produk" value="Peyek" class="hidden peer">
+            <img src="peyek10k.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
+            <span class="text-center">Peyek<br><span class="text-yellow-500">Rp15.000</span></span>
+          </label>
 
-  </div>
-</div>
+          <!-- Peyek 5lt -->
+          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+            <input type="radio" name="produk" value="Peyek 5lt" class="hidden peer">
+            <img src="peyek5lt.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
+            <span class="text-center">Peyek 5lt<br><span class="text-yellow-500">Rp50.000</span></span>
+          </label>
 
+        </div>
+      </div>
 
       <!-- Jumlah -->
       <div>
-        <label for="jumlah" class="block text-sm font-medium text-gray-700">Jumlah</label>
-        <input type="number" id="jumlah" min="1" value="1" class="w-full border rounded-lg px-3 py-2">
+        <label for="jumlah" class="block font-medium text-gray-700">Jumlah</label>
+        <input type="number" id="jumlah" min="1" value="1" class="w-full border rounded px-3 py-2">
       </div>
 
       <!-- Tombol Tambah -->
       <div class="text-center">
-        <button type="button" id="tambahProduk" class="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md">
+        <button type="button" id="tambahProduk" class="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded shadow">
           Tambah Produk
         </button>
       </div>
 
       <!-- Daftar Pesanan -->
       <div>
-        <h3 class="font-semibold mb-2">Daftar Pesanan:</h3>
-        <ul id="daftarProduk" class="space-y-1 text-sm text-gray-800 list-disc ml-5"></ul>
+        <h3 class="font-semibold mb-1">Daftar Pesanan:</h3>
+        <ul id="daftarProduk" class="text-gray-800 text-sm list-disc ml-4 space-y-1"></ul>
       </div>
 
       <!-- Tanggal -->
       <div>
-        <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal Diambil</label>
-        <input type="date" id="tanggal" required class="w-full border rounded-lg px-3 py-2">
+        <label for="tanggal" class="block font-medium text-gray-700">Tanggal Diambil</label>
+        <input type="date" id="tanggal" required class="w-full border rounded px-3 py-2">
       </div>
 
-      <!-- Metode -->
+      <!-- Metode Pengambilan -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">Metode Pengambilan</label>
+        <label class="block font-medium text-gray-700 mb-1">Metode Pengambilan</label>
         <label class="inline-flex items-center mr-4">
           <input type="radio" name="metode" value="COD" required class="form-radio text-yellow-500">
           <span class="ml-2">COD</span>
@@ -109,15 +92,15 @@
         </label>
       </div>
 
-      <!-- Total -->
+      <!-- Total Bayar -->
       <div>
-        <label for="total" class="block text-sm font-medium text-gray-700">Total Bayar (Rp)</label>
-        <input type="number" id="total" readonly class="w-full border rounded-lg px-3 py-2 bg-gray-100 cursor-not-allowed">
+        <label for="total" class="block font-medium text-gray-700">Total Bayar (Rp)</label>
+        <input type="number" id="total" readonly class="w-full border rounded px-3 py-2 bg-gray-100 cursor-not-allowed">
       </div>
 
       <!-- Submit -->
       <div class="text-center">
-        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition">
+        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow">
           Buat Pesanan
         </button>
       </div>
@@ -126,11 +109,10 @@
 
   <script>
     const hargaProduk = {
-  "Brambang Goreng": 10000,
-  "Peyek": 15000,
-  "Peyek 5lt": 50000
-};
-
+      "Brambang Goreng": 10000,
+      "Peyek": 15000,
+      "Peyek 5lt": 50000
+    };
 
     let keranjang = [];
 
@@ -153,12 +135,10 @@
     document.getElementById('tambahProduk').addEventListener('click', () => {
       const nama = document.querySelector('input[name="produk"]:checked').value;
       const jumlah = parseInt(jumlahInput.value);
-
       if (jumlah < 1) {
         alert("Jumlah minimal 1");
         return;
       }
-
       const harga = hargaProduk[nama];
       keranjang.push({ nama, jumlah, harga });
       updateDaftar();
@@ -166,12 +146,10 @@
 
     document.getElementById('formPesanan').addEventListener('submit', (e) => {
       e.preventDefault();
-
       if (keranjang.length === 0) {
         alert("Silakan tambahkan minimal satu produk.");
         return;
       }
-
       const pesanan = {
         nama: document.getElementById('nama').value,
         produk: keranjang,
@@ -179,11 +157,9 @@
         metode: document.querySelector('input[name="metode"]:checked').value,
         total: totalInput.value
       };
-
       let riwayat = JSON.parse(localStorage.getItem('riwayat')) || [];
       riwayat.push(pesanan);
       localStorage.setItem('riwayat', JSON.stringify(riwayat));
-
       alert("Pesanan berhasil dikirim!");
       window.location.href = "riwayat.html";
     });
