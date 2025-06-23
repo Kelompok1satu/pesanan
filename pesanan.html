@@ -9,103 +9,99 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fde047, #facc15);
+      background-color: #ffffff;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-4 py-4">
+<body class="min-h-screen px-4 py-4 bg-white">
 
-  <div class="w-full max-w-md bg-white p-4 rounded-xl shadow-lg">
-    <h2 class="text-xl font-bold text-center text-gray-800 mb-4">Formulir Pesanan</h2>
+  <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Formulir Pesanan</h2>
     
-    <form id="formPesanan" class="space-y-4 text-sm">
-      <!-- Nama -->
-      <div>
-        <label for="nama" class="block font-medium text-gray-700">Nama Pemesan</label>
-        <input type="text" id="nama" required class="w-full border rounded px-3 py-2">
-      </div>
+  <form id="formPesanan" class="space-y-5 text-sm">
+    <!-- Nama -->
+    <div>
+      <label for="nama" class="block font-medium text-gray-700">Nama Pemesan</label>
+      <input type="text" id="nama" required class="w-full border rounded px-3 py-2">
+    </div>
 
-      <!-- Produk -->
-      <div>
-        <label class="block font-medium text-gray-700 mb-1">Pilih Produk</label>
-        <div class="flex space-x-3 overflow-x-auto pb-2" id="produkContainer">
-
-          <!-- Brambang Goreng -->
-          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
-            <input type="radio" name="produk" value="Brambang Goreng" class="hidden peer" checked>
-            <img src="brambang.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
-            <span class="text-center">Brambang<br><span class="text-yellow-500">Rp10.000</span></span>
-          </label>
-
-          <!-- Peyek -->
-          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
-            <input type="radio" name="produk" value="Peyek" class="hidden peer">
-            <img src="peyek10k.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
-            <span class="text-center">Peyek<br><span class="text-yellow-500">Rp15.000</span></span>
-          </label>
-
-          <!-- Peyek 5lt -->
-          <label class="min-w-[100px] p-2 bg-white rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
-            <input type="radio" name="produk" value="Peyek 5lt" class="hidden peer">
-            <img src="peyek5lt.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:scale-105 peer-checked:ring-4 peer-checked:ring-yellow-400 transition">
-            <span class="text-center">Peyek 5lt<br><span class="text-yellow-500">Rp50.000</span></span>
-          </label>
-
-        </div>
-      </div>
-
-      <!-- Jumlah -->
-      <div>
-        <label for="jumlah" class="block font-medium text-gray-700">Jumlah</label>
-        <input type="number" id="jumlah" min="1" value="1" class="w-full border rounded px-3 py-2">
-      </div>
-
-      <!-- Tombol Tambah -->
-      <div class="text-center">
-        <button type="button" id="tambahProduk" class="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded shadow">
-          Tambah Produk
-        </button>
-      </div>
-
-      <!-- Daftar Pesanan -->
-      <div>
-        <h3 class="font-semibold mb-1">Daftar Pesanan:</h3>
-        <ul id="daftarProduk" class="text-gray-800 text-sm list-disc ml-4 space-y-1"></ul>
-      </div>
-
-      <!-- Tanggal -->
-      <div>
-        <label for="tanggal" class="block font-medium text-gray-700">Tanggal Diambil</label>
-        <input type="date" id="tanggal" required class="w-full border rounded px-3 py-2">
-      </div>
-
-      <!-- Metode Pengambilan -->
-      <div>
-        <label class="block font-medium text-gray-700 mb-1">Metode Pengambilan</label>
-        <label class="inline-flex items-center mr-4">
-          <input type="radio" name="metode" value="COD" required class="form-radio text-yellow-500">
-          <span class="ml-2">COD</span>
+    <!-- Produk -->
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Pilih Produk</label>
+      <div class="flex space-x-3 overflow-x-auto pb-2" id="produkContainer">
+        <!-- Brambang -->
+        <label class="min-w-[100px] p-2 rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+          <input type="radio" name="produk" value="Brambang Goreng" class="hidden peer" checked>
+          <img src="brambang.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:ring-4 peer-checked:ring-yellow-400">
+          <span class="text-center">Brambang<br><span class="text-yellow-500">Rp10.000</span></span>
         </label>
-        <label class="inline-flex items-center">
-          <input type="radio" name="metode" value="Ambil di Rumah" required class="form-radio text-yellow-500">
-          <span class="ml-2">Ambil di Rumah</span>
+
+        <!-- Peyek -->
+        <label class="min-w-[100px] p-2 rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+          <input type="radio" name="produk" value="Peyek" class="hidden peer">
+          <img src="peyek10k.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:ring-4 peer-checked:ring-yellow-400">
+          <span class="text-center">Peyek<br><span class="text-yellow-500">Rp15.000</span></span>
+        </label>
+
+        <!-- Peyek 5lt -->
+        <label class="min-w-[100px] p-2 rounded-xl shadow flex flex-col items-center border-2 border-transparent cursor-pointer">
+          <input type="radio" name="produk" value="Peyek 5lt" class="hidden peer">
+          <img src="peyek5lt.jpg" class="w-16 h-16 rounded-full mb-1 object-cover peer-checked:ring-4 peer-checked:ring-yellow-400">
+          <span class="text-center">Peyek 5lt<br><span class="text-yellow-500">Rp50.000</span></span>
         </label>
       </div>
+    </div>
 
-      <!-- Total Bayar -->
-      <div>
-        <label for="total" class="block font-medium text-gray-700">Total Bayar (Rp)</label>
-        <input type="number" id="total" readonly class="w-full border rounded px-3 py-2 bg-gray-100 cursor-not-allowed">
-      </div>
+    <!-- Jumlah -->
+    <div>
+      <label for="jumlah" class="block font-medium text-gray-700">Jumlah</label>
+      <input type="number" id="jumlah" min="1" value="1" class="w-full border rounded px-3 py-2">
+    </div>
 
-      <!-- Submit -->
-      <div class="text-center">
-        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow">
-          Buat Pesanan
-        </button>
-      </div>
-    </form>
-  </div>
+    <!-- Tombol Tambah -->
+    <div class="text-center">
+      <button type="button" id="tambahProduk" class="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded shadow">
+        Tambah Produk
+      </button>
+    </div>
+
+    <!-- Daftar Pesanan -->
+    <div>
+      <h3 class="font-semibold mb-1 text-gray-700">Daftar Pesanan:</h3>
+      <ul id="daftarProduk" class="text-gray-800 text-sm list-disc ml-4 space-y-1"></ul>
+    </div>
+
+    <!-- Tanggal -->
+    <div>
+      <label for="tanggal" class="block font-medium text-gray-700">Tanggal Diambil</label>
+      <input type="date" id="tanggal" required class="w-full border rounded px-3 py-2">
+    </div>
+
+    <!-- Metode -->
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Metode Pengambilan</label>
+      <label class="inline-flex items-center mr-4">
+        <input type="radio" name="metode" value="COD" required class="form-radio text-yellow-500">
+        <span class="ml-2">COD</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="radio" name="metode" value="Ambil di Rumah" required class="form-radio text-yellow-500">
+        <span class="ml-2">Ambil di Rumah</span>
+      </label>
+    </div>
+
+    <!-- Total -->
+    <div>
+      <label for="total" class="block font-medium text-gray-700">Total Bayar (Rp)</label>
+      <input type="number" id="total" readonly class="w-full border rounded px-3 py-2 bg-gray-100 cursor-not-allowed">
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center">
+      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow">
+        Buat Pesanan
+      </button>
+    </div>
+  </form>
 
   <script>
     const hargaProduk = {
